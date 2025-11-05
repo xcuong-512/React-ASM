@@ -65,6 +65,10 @@
     font-size: 13px;
 }
 
+.form-help .help {
+    cursor: pointer;
+}
+
 .remember {
     display: flex;
     align-items: center;
