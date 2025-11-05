@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Navbar.css'
 import Logo from '../../assets/cineon2.png'
 import Search_Icon from '../../assets/search_icon.svg'
@@ -7,9 +7,11 @@ import Profile_image from '../../assets/profile_img.png'
 import Dropdown_icon from '../../assets/caret_icon.svg'
 import { logout } from '../../firebase'
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
 
     const navRef = useRef();
+    const [showSearch, setShowSearch] = useState(false);
+    const [searchValue, setSearchValue] = useState("");
 
     useEffect(() => {
         // Khai báo hàm xử lý scroll
@@ -44,7 +46,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-right">
-                <img src={Search_Icon} alt="" className='icons' />
+                <img src={Search_Icon} alt="" className='icons' style={{ cursor: 'pointer' }} onClick={() => setShowSearch(v => !v)} />
+                {showSearch && (
+                    <input
+                        type="text"
+                        className="search-input"
+                        placeholder="Search movies..."
+                        value={searchValue}
+                        onChange={e => setSearchValue(e.target.value)}
+                        onKeyDown={e => {
+                            if (e.key === 'Enter') {
+                                if (onSearch) onSearch(searchValue);
+                            }
+                        }}
+                        style={{ marginRight: '10px' }}
+                    />
+                )}
                 <p>Children</p>
                 <img src={Bell_Icon} alt="" className='icons' />
                 <div className="navbar-profile">

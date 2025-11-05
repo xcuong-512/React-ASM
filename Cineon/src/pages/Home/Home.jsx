@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 import Navbar from '../../components/Navbar/Navbar'
 import HeroBanner from '../../assets/hero_banner.jpg'
@@ -9,9 +9,10 @@ import TitleCards from '../../components/TitleCards/TitleCards'
 import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
+    const [searchTerm, setSearchTerm] = useState("");
     return (
         <div className='home'>
-            <Navbar />
+            <Navbar onSearch={setSearchTerm} />
             <div className="hero">
                 <img src={HeroBanner} alt="" className='banner-img' />
                 <div className="hero-caption">
@@ -23,14 +24,14 @@ const Home = () => {
                         <button className='btn'><img src={PLayIcon} alt="" />Play</button>
                         <button className='btn dark-btn'><img src={InforIcon} alt="" />More Info</button>
                     </div>
-                    <TitleCards />
+                    <TitleCards searchTerm={searchTerm} />
                 </div>
             </div>
             <div className="more-cards">
-                <TitleCards title={"Blockbuster Movies"} category={"top_rated"} />
-                <TitleCards title={"Only on Cineon"} category={"popular"} />
-                <TitleCards title={"Upcoming"} category={"upcoming"} />
-                <TitleCards title={"Top Pics for You"} category={"now_playing"} />
+                <TitleCards title={"Blockbuster Movies"} category={"top_rated"} searchTerm={searchTerm} />
+                <TitleCards title={"Only on Cineon"} category={"popular"} searchTerm={searchTerm} />
+                <TitleCards title={"Upcoming"} category={"upcoming"} searchTerm={searchTerm} />
+                <TitleCards title={"Top Pics for You"} category={"now_playing"} searchTerm={searchTerm} />
             </div>
             <Footer />
         </div>

@@ -1,0 +1,52 @@
+@media (max-width: 700px) {
+    .tvshows {
+        padding: 18px 2px;
+    }
+
+    .tvshows-hero h1 {
+        font-size: 22px;
+    }
+
+    .tvshows-hero p {
+        font-size: 13px;
+    }
+
+    .tvshows-sections {
+        gap: 10px;
+    }
+
+    .tvshows .titlecards {
+        margin: 0 2px;
+    }
+}
+
+.tvshows {
+    padding: 40px 20px;
+    color: #fff;
+}
+
+.tvshows-hero {
+    max-width: 1000px;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+.tvshows-hero h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.tvshows-hero p {
+    color: #bdbdbd;
+}
+
+.tvshows-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tvshows .titlecards {
+    max-width: 1200px;
+    margin: 0 auto;
+}
